@@ -89,32 +89,56 @@ describe("About Applying What We Have Learnt", function() {
     var ingredientCount = { "{ingredient name}": 0 };
 
     /* chain() together map(), flatten() and reduce() */
-   
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+   _(products).chain()
+            .map(function(pizza){return pizza.ingredients})
+            .flatten()
+            .reduce(function(ingredientCount, item){
+              ingredientCount[item] = (ingredientCount[item] || 0) + 1 ;
+              return ingredientCount
+            }, ingredientCount)
+            .value()
+
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
-  it("should find the largest prime factor of a composite number", function () {
   
+    it("should find the largest prime factor of a composite number", function () {
+
+
+
+    expect(ingredientCount['mushrooms']).toBe(2)
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
+
+
+
+    expect(ingredientCount['mushrooms']).toBe(2)
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-      
+
+
+
+      expect(ingredientCount['mushrooms']).toBe(2)
     
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
-    
+
+
+
+    expect(ingredientCount['mushrooms']).toBe(2)
   });
 
   it("should find the 10001st prime", function () {
 
+
+
+    
+expect(ingredientCount['mushrooms']).toBe(2)
   });
-  */
+  
 });
